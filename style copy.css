@@ -1,3 +1,9 @@
+/* * {
+    border: 1px solid green;
+} */
+
+
+
 .jumbotron { /*MIMICS DEPRECATED JUMBOTRON FROM PREVIOUS BS VERSIONS TO BS-5 AND UP*/
     padding: 4rem 2rem;
     margin-bottom: 2rem;
@@ -7,4 +13,7 @@
     color: black;
     /* border-bottom: 10px solid black; */
   }
-  
+
+/* #card-cont {
+    background-color: transparent !important;
+} */

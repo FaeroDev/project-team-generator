@@ -1,0 +1,24 @@
+{
+  "name": "project-team-generator",
+  "version": "1.0.0",
+  "description": "A simple team profiler",
+  "main": "teamgen.js",
+  "scripts": {
+    "start": "node teamgen.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pharaohnof/project-team-generator.git"
+  },
+  "author": "M. Scott Pawlak (pharaohnof)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pharaohnof/project-team-generator/issues"
+  },
+  "homepage": "https://github.com/pharaohnof/project-team-generator#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "inquirer": "^8.0.0"
+  }
+}
