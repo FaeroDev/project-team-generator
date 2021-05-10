@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+const fillHTML = (answers) =>
+  `<!DOCTYPE html>
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
@@ -11,7 +12,7 @@
         integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
         crossorigin="anonymous"
       />
-      <link rel="stylesheet" href="./assets/style.css" />
+      <link rel="stylesheet" href="./team-style.css" />
       <title>My Project Team</title>
     </head>
     <body>
@@ -27,15 +28,15 @@
             <div class="card justify-content-center bg-primary text-white shadow bg-gradient"> 
               <!-- <img src="..." class="card-img-top" alt="..." /> -->
               <div class="card-body">
-                <h4 class="card-title">Scott Pawlak</h4>
+                <h4 class="card-title">${answers.name}</h4>
                 <h6 class="card-text">
                   Team Manager
                 </h6>
               </div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: 1</li>
-                <li class="list-group-item">Email: <a href= "mailto:pharaohnof.software@gmail.com>pharaohnof.software@gmail.com</a></li>
-                <li class="list-group-item">Office Number: 11</li>
+                <li class="list-group-item">ID: ${answers.ID}</li>
+                <li class="list-group-item">Email: <a href= "mailto:${answers.email}">${answers.email}</a></li>
+                <li class="list-group-item">Office Number: ${answers.office}</li>
               </ul>
             </div>
           </card>
@@ -64,4 +65,6 @@
       <script src=""></script>
     </body>
   </html>
-  
+  `;
+
+module.exports = fillHTML;
