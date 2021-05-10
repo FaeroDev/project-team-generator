@@ -1,9 +1,11 @@
 console.log("teamgen fired");
 
-const inquirer = require("inquirer");
 const fs = require("fs");
+
+const inquirer = require("inquirer");
 const util = require("util");
 let userAnswers;
+const fsMkdir = util.promisify(fs.mkdir);
 const writeFile = util.promisify(fs.writeFile);
 
 const userInput = () => {
@@ -28,14 +30,10 @@ const userInput = () => {
       name: "office",
       message: "Enter Team Manager Office Number:",
     },
-
-
-
-   
   ]);
 };
 
-const fillHTML = (answers) => 
+const fillHTML = (answers) =>
   `<!DOCTYPE html>
   <html lang="en">
     <head>
@@ -49,7 +47,7 @@ const fillHTML = (answers) =>
         integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
         crossorigin="anonymous"
       />
-      <link rel="stylesheet" href="./assets/style.css" />
+      <link rel="stylesheet" href="./team-style.css" />
       <title>My Project Team</title>
     </head>
     <body>
@@ -72,7 +70,7 @@ const fillHTML = (answers) =>
               </div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${answers.ID}</li>
-                <li class="list-group-item">Email: <a href= "mailto:${answers.email}>${answers.email}</a></li>
+                <li class="list-group-item">Email: <a href= "mailto:${answers.email}">${answers.email}</a></li>
                 <li class="list-group-item">Office Number: ${answers.office}</li>
               </ul>
             </div>
@@ -103,8 +101,6 @@ const fillHTML = (answers) =>
     </body>
   </html>
   `;
-;
-
 const styleFill = `.jumbotron { /*MIMICS DEPRECATED JUMBOTRON FROM PREVIOUS BS VERSIONS TO BS-5 AND UP*/
     padding: 4rem 2rem;
     margin-bottom: 2rem;
@@ -115,17 +111,33 @@ const styleFill = `.jumbotron { /*MIMICS DEPRECATED JUMBOTRON FROM PREVIOUS BS V
     /* border-bottom: 10px solid black; */
   }
   `;
-// Bonus using writeFileAsync as a promise
 // const init = () => {
-userInput()
 // .then((answers) => writeFile('test.html', fillHTML(answers)))
 
+userInput()
+  // .then(() => {
+  //   fsMkdir("./dist", { recursive: true }, (err) =>
+  //     err
+  //       ? console.log(err)
+  //       : console.log("Successfully created dist directory")
+  //   );
+  // })
   .then((answers) => {
-    writeFile("test.html", fillHTML(answers))
-    this.Answers = answers
-    userAnswers = this.Answers
-    console.log(userAnswers)
-  
+  //   fsMkdir("./dist", { recursive: true }, (err) =>
+  //   err
+  //     ? console.log(err)
+  //     : console.log("Successfully created dist directory")
+  // );
+
+  fsMkdir("./dist", { recursive: true })
+    console.log("Successfully created dist directory");
+
+
+    writeFile("./dist/team.html", fillHTML(answers));
+    this.Answers = answers;
+    userAnswers = this.Answers;
+    console.log(userAnswers);
+
     console.log(`
            YOU ENTERED:
     `);
@@ -133,20 +145,13 @@ userInput()
     console.log(`
       ----------------------------------------------------------------
       GENERATED:
-       test.html,
-       ./asset/style.css, and
-       ./assets/script.js
+       ./dist/team-style.css, and
+       ./dist/team.html
        IN CURRENT DIRECTORY`);
   })
+
   .then(() => {
-    fs.mkdir("./assets", { recursive: true }, (err) =>
-      err
-        ? console.log(err)
-        : console.log("Successfully created assets directory")
-    );
-  })
-  .then(() => {
-    writeFile("./assets/style.css", styleFill);
+    writeFile("./dist/team-style.css", styleFill);
   })
 
   .catch((err) => console.error(err));
