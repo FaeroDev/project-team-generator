@@ -151,6 +151,13 @@ const addMemberQuery = () => {
           break;
         case "No":
           console.log("answered no to addTeamMember");
+          if (teamArray.length > 1) {
+            // writeScript();
+            console.log("writeFiles will be invoked here")
+          }else{
+            console.log('A TEAM MUST CONSIST OF MORE THAN ONE MEMBER - FILES NOT WRITTEN')
+          }
+
           break;
       }
     })
