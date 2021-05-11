@@ -1,4 +1,41 @@
-<!DOCTYPE html>
+const teamArray = require("../test.js")
+
+let cardArray = [];
+
+function fillCards() {
+  console.log('fillCards fired')
+  console.log(teamArray)
+
+  for (const member of teamArray) {
+    cardArray.push(
+      `          <card class="col-sm-6 col-xl-4 justify-content-center p-3">
+      <div class="card justify-content-center bg-primary text-white shadow bg-gradient"> 
+        <!-- <img src="..." class="card-img-top" alt="..." /> -->
+        <div class="card-body">
+          <h4 class="card-title">${member.Name}</h4>
+          <h6 class="card-text">
+            ${member.Role}
+          </h6>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">ID: ${member.Id}</li>
+          <li class="list-group-item">Email: <a href= "mailto:${member.Email}">${member.Email}</a></li>
+          <li class="list-group-item">Office Number: ${member.Office || member.Github || member.School}</li>
+        </ul>
+      </div>
+    </card>
+`
+    )
+  }
+}
+
+
+
+fillCards();
+
+
+const fillHTML = (answers) =>
+  `<!DOCTYPE html>
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
@@ -23,39 +60,7 @@
       <main class="container col-12">
         <row class="row justify-content-center">
 
-                  <card class="col-sm-6 col-xl-4 justify-content-center p-3">
-      <div class="card justify-content-center bg-primary text-white shadow bg-gradient"> 
-        <!-- <img src="..." class="card-img-top" alt="..." /> -->
-        <div class="card-body">
-          <h4 class="card-title">Scott</h4>
-          <h6 class="card-text">
-            Team Manager
-          </h6>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">ID: asdf</li>
-          <li class="list-group-item">Email: <a href= "mailto:flflfl@lll.l">flflfl@lll.l</a></li>
-          <li class="list-group-item">Office Number: 99</li>
-        </ul>
-      </div>
-    </card>
-,          <card class="col-sm-6 col-xl-4 justify-content-center p-3">
-      <div class="card justify-content-center bg-primary text-white shadow bg-gradient"> 
-        <!-- <img src="..." class="card-img-top" alt="..." /> -->
-        <div class="card-body">
-          <h4 class="card-title">jim</h4>
-          <h6 class="card-text">
-            Engineer
-          </h6>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">ID: asdf</li>
-          <li class="list-group-item">Email: <a href= "mailto:k@k.com">k@k.com</a></li>
-          <li class="list-group-item">Office Number: 12345</li>
-        </ul>
-      </div>
-    </card>
-
+        ${cardArray}
 
 
          <!-- <card class="col-sm-6 col-xl-4 justify-content-center p-3">
@@ -82,4 +87,7 @@
       <script src=""></script>
     </body>
   </html>
-  
+  `;
+
+
+module.exports = fillHTML;

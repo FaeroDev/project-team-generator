@@ -1,12 +1,55 @@
-const teamArray = require("../test.js")
+const teamArray = require("../test.js");
 
 let cardArray = [];
+// let officeString = `Office Number: `
+// let githubString = `Github: `
+// let schoolString = `School: `
 
-function fillCards() {
-  console.log('fillCards fired')
-  console.log(teamArray)
+const makeFile = new Promise((resolve, reject) => {
+  if (teamArray.length > 0) {
+    return resolve(teamArray);
+  } else {
+    const issue = new Error("TeamArray promise rejected");
+    reject(issue);
+  }
+});
 
-  for (const member of teamArray) {
+function fillCards(array) {
+  console.log("fillCards fired");
+  console.log(teamArray);
+
+  for (const member of array) {
+    let officeString = `${member.Office}`;
+    let githubString = `Github: <a href="https://github.com/${member.Github}">${member.Github}</a>`;
+    let schoolString = `School: ${member.School}`;
+
+    function varFill(member) {
+      if (member.Office) {
+        return `Office Number: ${member.Office}`;
+      } else if (member.Github) {
+        return `Github: <a href="https://github.com/${member.Github}">${member.Github}</a>`;
+      } else if (member.School) {
+        return `School: ${member.School}`;
+      } else {
+        console.log(
+          "switche fail --------------------------------------------------------"
+        );
+      }
+      // switch (member) {
+      //   case officeString:
+      //     return `Office Number: ${member.Office}`
+      //     break;
+
+      //   default:
+      //     console.log('------------------swicth failed------------------')
+      //     break;
+      // }
+    }
+
+    // let officeString = `${member.Office}`
+    // let githubString = `Github: ${member.Github}`
+    // let schoolString = `School: ${member.School}`
+
     cardArray.push(
       `          <card class="col-sm-6 col-xl-4 justify-content-center p-3">
       <div class="card justify-content-center bg-primary text-white shadow bg-gradient"> 
@@ -19,20 +62,22 @@ function fillCards() {
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">ID: ${member.Id}</li>
-          <li class="list-group-item">Email: <a href= "mailto:${member.Email}">${member.Email}</a></li>
-          <li class="list-group-item">Office Number: ${member.Office || member.Github || member.School}</li>
+          <li class="list-group-item">Email: <a href= "mailto:${
+            member.Email
+          }">${member.Email}</a></li>
+          <li class="list-group-item"> ${varFill(member)}</li>
         </ul>
       </div>
     </card>
 `
-    )
+    );
   }
 }
 
+// makeFile
 
-
-fillCards();
-
+// .then (fillCards(teamArray))
+// .then (fillHTML())
 
 const fillHTML = (answers) =>
   `<!DOCTYPE html>
@@ -89,5 +134,6 @@ const fillHTML = (answers) =>
   </html>
   `;
 
+makeFile.then(fillCards(teamArray)).then(fillHTML());
 
 module.exports = fillHTML;

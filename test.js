@@ -1,4 +1,4 @@
-console.log("test fired");
+console.log("teamgen fired");
 
 const fs = require("fs");
 const inquirer = require("inquirer");
@@ -186,7 +186,7 @@ const addMemberQuery = () => {
           if (teamArray.length > 0) {
             const fillHTML = require("./src/fillHTML.js");
 
-
+            
             console.log(teamArray)
             fsMkdir("./dist", { recursive: true })
 
