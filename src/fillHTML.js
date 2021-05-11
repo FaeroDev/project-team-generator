@@ -1,9 +1,6 @@
 const teamArray = require("../teamgen.js");
 
 let cardArray = [];
-// let officeString = `Office Number: `
-// let githubString = `Github: `
-// let schoolString = `School: `
 
 const makeFile = new Promise((resolve, reject) => {
   if (teamArray.length > 0) {
@@ -16,13 +13,8 @@ const makeFile = new Promise((resolve, reject) => {
 
 function fillCards(array) {
   console.log("fillCards fired");
-  console.log(teamArray);
 
   for (const member of array) {
-    let officeString = `${member.Office}`;
-    let githubString = `Github: <a href="https://github.com/${member.Github}">${member.Github}</a>`;
-    let schoolString = `School: ${member.School}`;
-
     function varFill(member) {
       if (member.Office) {
         return `Office Number: ${member.Office}`;
@@ -32,23 +24,10 @@ function fillCards(array) {
         return `School: ${member.School}`;
       } else {
         console.log(
-          "switche fail --------------------------------------------------------"
+          "VARFILL FAILED --------------------------------------------------------"
         );
       }
-      // switch (member) {
-      //   case officeString:
-      //     return `Office Number: ${member.Office}`
-      //     break;
-
-      //   default:
-      //     console.log('------------------swicth failed------------------')
-      //     break;
-      // }
     }
-
-    // let officeString = `${member.Office}`
-    // let githubString = `Github: ${member.Github}`
-    // let schoolString = `School: ${member.School}`
 
     cardArray.push(
       `          <card class="col-sm-6 col-xl-4 justify-content-center p-3">
@@ -73,11 +52,6 @@ function fillCards(array) {
     );
   }
 }
-
-// makeFile
-
-// .then (fillCards(teamArray))
-// .then (fillHTML())
 
 const fillHTML = (answers) =>
   `<!DOCTYPE html>
@@ -106,27 +80,7 @@ const fillHTML = (answers) =>
         <row class="row justify-content-center">
 
         ${cardArray}
-
-
-         <!-- <card class="col-sm-6 col-xl-4 justify-content-center p-3">
-          <div class="card justify-content-center bg-primary text-white shadow bg-gradient"> 
-            <div class="card-body">
-              <h4 class="card-title">John Doe</h4>
-              <h5 class="card-text">
-                Engineer
-              </h5>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">An item</li>
-              <li class="list-group-item">A second item</li>
-              <li class="list-group-item">A third item</li>
-            </ul>
-          </div>
-        </card> -->
-
-  
-          
-  
+        
         </row>
       </main>
       <script src=""></script>

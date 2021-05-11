@@ -1,24 +1,14 @@
-console.log("teamgen fired");
+console.log("PROJECT TEAM GENERATOR STARTED");
 
-// const fs = require("fs");
 const inquirer = require("inquirer");
-// const util = require("util");
 
 const Manager = require("./lib/ManagerClass.js");
-const Engineer = require("./lib/EngineerClass.js")
-const Intern = require("./lib/InternClass.js")
+const Engineer = require("./lib/EngineerClass.js");
+const Intern = require("./lib/InternClass.js");
 
-// const writeFiles = require("./src/writeFiles.js")
 let teamArray = [];
 
 module.exports = teamArray;
-// const fillHTML = require("./src/fillHTML.js");
-// const styleFill = require("./src/styleFill.js");
-
-// const fsMkdir = util.promisify(fs.mkdir);
-// const writeFile = util.promisify(fs.writeFile);
-
-// let userAnswers;
 
 const managerInput = () => {
   return inquirer
@@ -46,15 +36,15 @@ const managerInput = () => {
     ])
 
     .then((answers) => {
-      let manager= new Manager(
+      let manager = new Manager(
         answers.name,
         answers.id,
         answers.email,
         answers.office
       );
-      console.log(manager);
+      // console.log(manager);
       teamArray.push(manager);
-      console.log(teamArray);
+      // console.log(teamArray);
       addMemberQuery();
     });
 };
@@ -89,11 +79,11 @@ const engineerInput = () => {
         answers.name,
         answers.id,
         answers.email,
-        answers.github,
+        answers.github
       );
-      console.log(engineer);
+      // console.log(engineer);
       teamArray.push(engineer);
-      console.log(teamArray);
+      // console.log(teamArray);
       addMemberQuery();
     });
 };
@@ -130,14 +120,12 @@ const internInput = () => {
         answers.email,
         answers.school
       );
-      console.log(intern);
+      // console.log(intern);
       teamArray.push(intern);
-      console.log(teamArray);
+      // console.log(teamArray);
       addMemberQuery();
     });
 };
-
-
 
 const selectInput = () => {
   return inquirer
@@ -154,19 +142,22 @@ const selectInput = () => {
           engineerInput();
           break;
 
-        case 'Intern':
+        case "Intern":
           console.log("CHOSE INTERN");
           internInput();
           break;
 
         case "ABORT":
-          addMemberQuery()
+          addMemberQuery();
           break;
       }
     });
 };
 
 const addMemberQuery = () => {
+  console.log(`YOUR TEAM CONSISTS OF:
+  `)
+  console.log(teamArray)
   return inquirer
     .prompt({
       type: "list",
@@ -186,57 +177,10 @@ const addMemberQuery = () => {
           if (teamArray.length > 0) {
             const fillHTML = require("./src/fillHTML.js");
             const writeFiles = require("./src/writeFiles.js");
-
-            
-          //   console.log(teamArray)
-          //   fsMkdir("./dist", { recursive: true })
-
-
-          //   .then(() => {
-          //     // module.exports = teamArray;
-
-          //     //   fsMkdir("./dist", { recursive: true }, (err) =>
-          //     //   err
-          //     //     ? console.log(err)
-          //     //     : console.log("Successfully created dist directory")
-          //     // );
-          
-          //     // fsMkdir("./dist", { recursive: true });
-          //     console.log("Successfully created dist directory");
-          //     console.log(teamArray)
-          
-          //     writeFile("./dist/team.html", fillHTML(teamArray));
-          //     // this.Answers = answers;
-          //     // userAnswers = this.Answers;
-          //     // console.log(userAnswers);
-          
-          //     console.log(`
-          //            YOU ENTERED:
-          //     `);
-          //     // console.log(answers);
-          //     console.log(`
-          //       ----------------------------------------------------------------
-          //       GENERATED:
-          //        ./dist/team-style.css, and
-          //        ./dist/team.html
-          //        IN CURRENT DIRECTORY`);
-          //   })
-          
-          //   .then(() => {
-          //     writeFile("./dist/team-style.css", styleFill);
-          //   })
-          
-          //   .catch((err) => console.error(err));
-          // // };
-          
-          // // init();
-          
-          //   // const writeFiles = require("./src/writeFiles.js")
-
-          //   // writeFiles(teamArray);
-          //   console.log("writeFiles will be invoked here")
-          }else{
-            console.log('A TEAM MUST CONSIST OF MORE THAN ONE MEMBER - FILES NOT WRITTEN')
+          } else {
+            console.log(
+              "A TEAM MUST CONSIST OF MORE THAN ONE MEMBER - FILES NOT WRITTEN"
+            );
           }
 
           break;
@@ -245,18 +189,4 @@ const addMemberQuery = () => {
     .catch((err) => console.error(err));
 };
 
-
-managerInput()
-
-
-// // const init = () => {
-// .then((answers) => writeFile('test.html', fillHTML(answers)))
-
-// userInput()
-  // .then(() => {
-  //   fsMkdir("./dist", { recursive: true }, (err) =>
-  //     err
-  //       ? console.log(err)
-  //       : console.log("Successfully created dist directory")
-  //   );
-  // })
+managerInput();
