@@ -43,7 +43,7 @@ const managerInput = () => {
     ])
 
     .then((answers) => {
-      const manager = new Manager(
+      let manager = new Manager(
         answers.name,
         answers.id,
         answers.email,
@@ -82,7 +82,7 @@ const engineerInput = () => {
     ])
 
     .then((answers) => {
-      const engineer = new Engineer(
+      let engineer = new Engineer(
         answers.name,
         answers.id,
         answers.email,
@@ -90,6 +90,45 @@ const engineerInput = () => {
       );
       console.log(engineer);
       teamArray.push(engineer);
+      console.log(teamArray);
+      addMemberQuery();
+    });
+};
+
+const internInput = () => {
+  return inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "name",
+        message: "Enter Intern Name:",
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "Enter Intern ID number:",
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "Enter Intern Email Address:",
+      },
+      {
+        type: "input",
+        name: "school",
+        message: "Enter Intern School:",
+      },
+    ])
+
+    .then((answers) => {
+      let intern = new Intern(
+        answers.name,
+        answers.id,
+        answers.email,
+        answers.school
+      );
+      console.log(intern);
+      teamArray.push(intern);
       console.log(teamArray);
       addMemberQuery();
     });
@@ -135,7 +174,7 @@ const selectInput = () => {
 
         case 'Intern':
           console.log("CHOSE INTERN");
-          // internInput();
+          internInput();
           break;
 
         case "ABORT":
