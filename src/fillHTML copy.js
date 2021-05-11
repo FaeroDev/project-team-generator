@@ -62,6 +62,22 @@ const fillHTML = (answers) =>
 
         ${cardArray}
 
+         <!-- <card class="col-sm-6 col-xl-4 justify-content-center p-3">
+            <div class="card justify-content-center bg-primary text-white shadow bg-gradient"> 
+              <!-- <img src="..." class="card-img-top" alt="..." /> -->
+              <div class="card-body">
+                <h4 class="card-title">${teamArray[0].Name}</h4>
+                <h6 class="card-text">
+                  Team Manager
+                </h6>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">ID: ${answers.Id}</li>
+                <li class="list-group-item">Email: <a href= "mailto:${answers.Email}">${answers.Email}</a></li>
+                <li class="list-group-item">Office Number: ${answers.Office}</li>
+              </ul>
+            </div>
+          </card> -->
 
          <!-- <card class="col-sm-6 col-xl-4 justify-content-center p-3">
           <div class="card justify-content-center bg-primary text-white shadow bg-gradient"> 

@@ -12,7 +12,7 @@ const Intern = require("./lib/InternClass.js")
 let teamArray = [];
 
 module.exports = teamArray;
-const fillHTML = require("./src/fillHTML.js");
+// const fillHTML = require("./src/fillHTML.js");
 const styleFill = require("./src/styleFill.js");
 
 const fsMkdir = util.promisify(fs.mkdir);
@@ -184,6 +184,8 @@ const addMemberQuery = () => {
           console.log("answered no to addTeamMember");
           // CHANGE TO 1 FROM 0 ----------------------------------------------------------------
           if (teamArray.length > 0) {
+            const fillHTML = require("./src/fillHTML.js");
+
 
             console.log(teamArray)
             fsMkdir("./dist", { recursive: true })
