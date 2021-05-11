@@ -1,4 +1,4 @@
-const teamArray = require("../test.js");
+const teamArray = require("../teamgen.js");
 
 let cardArray = [];
 // let officeString = `Office Number: `

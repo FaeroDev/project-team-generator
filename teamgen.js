@@ -1,8 +1,8 @@
 console.log("teamgen fired");
 
-const fs = require("fs");
+// const fs = require("fs");
 const inquirer = require("inquirer");
-const util = require("util");
+// const util = require("util");
 
 const Manager = require("./lib/ManagerClass.js");
 const Engineer = require("./lib/EngineerClass.js")
@@ -13,10 +13,10 @@ let teamArray = [];
 
 module.exports = teamArray;
 // const fillHTML = require("./src/fillHTML.js");
-const styleFill = require("./src/styleFill.js");
+// const styleFill = require("./src/styleFill.js");
 
-const fsMkdir = util.promisify(fs.mkdir);
-const writeFile = util.promisify(fs.writeFile);
+// const fsMkdir = util.promisify(fs.mkdir);
+// const writeFile = util.promisify(fs.writeFile);
 
 // let userAnswers;
 
@@ -185,55 +185,56 @@ const addMemberQuery = () => {
           // CHANGE TO 1 FROM 0 ----------------------------------------------------------------
           if (teamArray.length > 0) {
             const fillHTML = require("./src/fillHTML.js");
+            const writeFiles = require("./src/writeFiles.js");
 
             
-            console.log(teamArray)
-            fsMkdir("./dist", { recursive: true })
+          //   console.log(teamArray)
+          //   fsMkdir("./dist", { recursive: true })
 
 
-            .then(() => {
-              // module.exports = teamArray;
+          //   .then(() => {
+          //     // module.exports = teamArray;
 
-              //   fsMkdir("./dist", { recursive: true }, (err) =>
-              //   err
-              //     ? console.log(err)
-              //     : console.log("Successfully created dist directory")
-              // );
+          //     //   fsMkdir("./dist", { recursive: true }, (err) =>
+          //     //   err
+          //     //     ? console.log(err)
+          //     //     : console.log("Successfully created dist directory")
+          //     // );
           
-              // fsMkdir("./dist", { recursive: true });
-              console.log("Successfully created dist directory");
-              console.log(teamArray)
+          //     // fsMkdir("./dist", { recursive: true });
+          //     console.log("Successfully created dist directory");
+          //     console.log(teamArray)
           
-              writeFile("./dist/team.html", fillHTML(teamArray));
-              // this.Answers = answers;
-              // userAnswers = this.Answers;
-              // console.log(userAnswers);
+          //     writeFile("./dist/team.html", fillHTML(teamArray));
+          //     // this.Answers = answers;
+          //     // userAnswers = this.Answers;
+          //     // console.log(userAnswers);
           
-              console.log(`
-                     YOU ENTERED:
-              `);
-              // console.log(answers);
-              console.log(`
-                ----------------------------------------------------------------
-                GENERATED:
-                 ./dist/team-style.css, and
-                 ./dist/team.html
-                 IN CURRENT DIRECTORY`);
-            })
+          //     console.log(`
+          //            YOU ENTERED:
+          //     `);
+          //     // console.log(answers);
+          //     console.log(`
+          //       ----------------------------------------------------------------
+          //       GENERATED:
+          //        ./dist/team-style.css, and
+          //        ./dist/team.html
+          //        IN CURRENT DIRECTORY`);
+          //   })
           
-            .then(() => {
-              writeFile("./dist/team-style.css", styleFill);
-            })
+          //   .then(() => {
+          //     writeFile("./dist/team-style.css", styleFill);
+          //   })
           
-            .catch((err) => console.error(err));
-          // };
+          //   .catch((err) => console.error(err));
+          // // };
           
-          // init();
+          // // init();
           
-            // const writeFiles = require("./src/writeFiles.js")
+          //   // const writeFiles = require("./src/writeFiles.js")
 
-            // writeFiles(teamArray);
-            console.log("writeFiles will be invoked here")
+          //   // writeFiles(teamArray);
+          //   console.log("writeFiles will be invoked here")
           }else{
             console.log('A TEAM MUST CONSIST OF MORE THAN ONE MEMBER - FILES NOT WRITTEN')
           }
