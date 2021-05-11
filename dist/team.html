@@ -1,7 +1,4 @@
-const teamArray = require("../test.js")
-
-const fillHTML = (answers) =>
-  `<!DOCTYPE html>
+<!DOCTYPE html>
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
@@ -30,15 +27,15 @@ const fillHTML = (answers) =>
             <div class="card justify-content-center bg-primary text-white shadow bg-gradient"> 
               <!-- <img src="..." class="card-img-top" alt="..." /> -->
               <div class="card-body">
-                <h4 class="card-title">${teamArray[0].Name}</h4>
+                <h4 class="card-title">scott</h4>
                 <h6 class="card-text">
                   Team Manager
                 </h6>
               </div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: ${answers.Id}</li>
-                <li class="list-group-item">Email: <a href= "mailto:${answers.Email}">${answers.Email}</a></li>
-                <li class="list-group-item">Office Number: ${answers.Office}</li>
+                <li class="list-group-item">ID: undefined</li>
+                <li class="list-group-item">Email: <a href= "mailto:undefined">undefined</a></li>
+                <li class="list-group-item">Office Number: undefined</li>
               </ul>
             </div>
           </card>
@@ -67,6 +64,4 @@ const fillHTML = (answers) =>
       <script src=""></script>
     </body>
   </html>
-  `;
-
-module.exports = fillHTML;
+  
