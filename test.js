@@ -4,7 +4,9 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 const util = require("util");
 
-const Manager = require("./lib/ManagerClass");
+const Manager = require("./lib/ManagerClass.js");
+const Engineer = require("./lib/EngineerClass.js")
+const Intern = require("./lib/InternClass.js")
 
 const fillHTML = require("./src/fillHTML.js");
 const styleFill = require("./src/styleFill.js");
@@ -54,6 +56,46 @@ const managerInput = () => {
     });
 };
 
+const engineerInput = () => {
+  return inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "name",
+        message: "Enter Engineer Name:",
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "Enter Engineer ID number:",
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "Enter Engineer Email Address:",
+      },
+      {
+        type: "input",
+        name: "github",
+        message: "Enter Engineer GitHub ID:",
+      },
+    ])
+
+    .then((answers) => {
+      const engineer = new Engineer(
+        answers.name,
+        answers.id,
+        answers.email,
+        answers.github,
+      );
+      console.log(engineer);
+      teamArray.push(engineer);
+      console.log(teamArray);
+      addMemberQuery();
+    });
+};
+
+
 const addMemberQuery = () => {
   return inquirer
     .prompt({
@@ -88,7 +130,7 @@ const selectInput = () => {
       switch (answer.selectRole) {
         case "Engineer":
           console.log("CHOSE ENGINEER");
-          // engineerInput();
+          engineerInput();
           break;
 
         case 'Intern':
