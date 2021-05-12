@@ -1,5 +1,5 @@
 const teamArray = require("../teamgen.js");
-
+// const teamArray = require("../mock.js")
 let cardArray = [];
 
 const makeFile = new Promise((resolve, reject) => {
