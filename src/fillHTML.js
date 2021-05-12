@@ -1,15 +1,7 @@
-const teamArray = require("../teamgen.js");
-// const teamArray = require("../mock.js")
-let cardArray = [];
+// const teamArray = require("../teamgen.js");
+const teamArray = require("../mock.js");
 
-const makeFile = new Promise((resolve, reject) => {
-  if (teamArray.length > 0) {
-    return resolve(teamArray);
-  } else {
-    const issue = new Error("TeamArray promise rejected");
-    reject(issue);
-  }
-});
+let cardArray = [];
 
 function fillCards(array) {
   console.log("fillCards fired");
@@ -30,9 +22,9 @@ function fillCards(array) {
     }
 
     cardArray.push(
-      `          <card class="col-sm-6 col-xl-4 justify-content-center p-3">
+    `<!-- ----------INJECTED TEAM MEMBER------------ -->
+    <card class="col-sm-5 col-xl-3 justify-content-center p-3">
       <div class="card justify-content-center bg-primary text-white shadow bg-gradient"> 
-        <!-- <img src="..." class="card-img-top" alt="..." /> -->
         <div class="card-body">
           <h4 class="card-title">${member.Name}</h4>
           <h6 class="card-text">
@@ -47,13 +39,15 @@ function fillCards(array) {
           <li class="list-group-item"> ${varFill(member)}</li>
         </ul>
       </div>
-    </card>
-`
+    </card> <!--`+'-->'
     );
   }
 }
 
-const fillHTML = (answers) =>
+fillCards(teamArray);
+
+
+const fillHTML = () =>
   `<!DOCTYPE html>
   <html lang="en">
     <head>
@@ -76,7 +70,7 @@ const fillHTML = (answers) =>
         <p class="lead">A simple team profiler</p>
         <p id="currentDay" class="lead"></p>
       </header>
-      <main class="container col-12">
+      <main class="container p-0 col-12">
         <row class="row justify-content-center">
 
         ${cardArray}
@@ -87,7 +81,5 @@ const fillHTML = (answers) =>
     </body>
   </html>
   `;
-
-makeFile.then(fillCards(teamArray)).then(fillHTML());
-
+// fillCards(teamArray);
 module.exports = fillHTML;
