@@ -1,5 +1,5 @@
-// const teamArray = require("../teamgen.js");
-const teamArray = require("../mock.js");
+const teamArray = require("../teamgen.js");
+// const teamArray = require("../mock.js");
 
 let cardArray = [];
 
@@ -39,7 +39,8 @@ function fillCards(array) {
           <li class="list-group-item"> ${varFill(member)}</li>
         </ul>
       </div>
-    </card>`
+    </card>
+    `
     );
   }
 }
@@ -81,5 +82,4 @@ const fillHTML = () =>
     </body>
   </html>
   `;
-// fillCards(teamArray);
 module.exports = fillHTML;

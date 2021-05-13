@@ -174,7 +174,7 @@ const addMemberQuery = () => {
         case "No":
           console.log("answered no to addTeamMember");
           // CHANGE TO 1 FROM 0 ----------------------------------------------------------------
-          if (teamArray.length > 0) {
+          if (teamArray.length > 1) {
             const fillHTML = require("./src/fillHTML.js");
             const writeFiles = require("./src/writeFiles.js");
           } else {

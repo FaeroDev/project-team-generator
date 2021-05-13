@@ -7,6 +7,10 @@ const styleFill = `.jumbotron { /*MIMICS DEPRECATED JUMBOTRON FROM PREVIOUS BS V
     color: black;
     /* border-bottom: 10px solid black; */
   }
+
+  row {
+    color: rgba(0, 0, 0, 0)
+  }
   `;
 
 module.exports = styleFill;
