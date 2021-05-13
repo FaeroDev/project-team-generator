@@ -1,5 +1,4 @@
 const teamArray = require("../teamgen.js");
-// const teamArray = require("../mock.js");
 
 let cardArray = [];
 
@@ -22,7 +21,7 @@ function fillCards(array) {
     }
 
     cardArray.push(
-    `<!-- ----------INJECTED TEAM MEMBER------------ -->
+      `<!-- ----------INJECTED TEAM MEMBER------------ -->
     <card class="col-sm-5 col-xl-3 justify-content-center p-3">
       <div class="card justify-content-center bg-primary text-white shadow bg-gradient"> 
         <div class="card-body">
@@ -46,7 +45,6 @@ function fillCards(array) {
 }
 
 fillCards(teamArray);
-
 
 const fillHTML = () =>
   `<!DOCTYPE html>

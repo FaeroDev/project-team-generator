@@ -156,8 +156,8 @@ const selectInput = () => {
 
 const addMemberQuery = () => {
   console.log(`YOUR TEAM CONSISTS OF:
-  `)
-  console.log(teamArray)
+  `);
+  console.log(teamArray);
   return inquirer
     .prompt({
       type: "list",
