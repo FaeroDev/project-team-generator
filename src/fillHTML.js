@@ -39,7 +39,7 @@ function fillCards(array) {
           <li class="list-group-item"> ${varFill(member)}</li>
         </ul>
       </div>
-    </card> <!--`+'-->'
+    </card>`
     );
   }
 }
