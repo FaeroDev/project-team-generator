@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# use this for Linux (Ubuntu) or Windows Subsystem for Linux (Windows 10)
+#node /home/project-team-generator/teamgen.js
+
+# use this for Gitbash on Windows
+node /c/'program files'/project-team-generator/teamgen.js
+
+#depending on your Gitbash setup you may need to use this
+#node /mnt/c/'program files'/project-team-generator/teamgen.js
