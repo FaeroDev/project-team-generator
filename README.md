@@ -4,7 +4,7 @@
 
 ***
 
-  This Project is Currently under Construction
+  A simple command line tool for creating a Project Team Profile and generating an HTML file (with styling) for GitHub applications. Uses JavaScript, Node.js, Inquirer, and FS.
   
   ## Table Of Contents  
 
@@ -20,25 +20,25 @@
 
   ##  Installation
 
-***
+*** 
 
   ### Clone the repository: 
-    git clone https://github.com/pharaohnof/project-team-generator.git  
+    git clone git@github.com:pharaohnof/project-team-generator.git  
       
   ### Dependencies:  
   The following dependencies are required for use:  
- * This Project is Currently under Construction  
+ * Node.JS - Inquirer - FS - util - and Jest for testing  
   
   ### Additional Installation Instructions:
 
     
-  This Project is Currently under Construction  
+  * Install Node.js, clone the above repository to your machine, run `npm install` for dependencies  
 
   ##  Usage instructions  
 
 ***
     
-  This Project is Currently under Construction  
+  run `npm start` or `node teamgen.js` from a terminal in the repo directory, answer the questions, and view the HTML and CSS files written to the /dist subdirectory  
     
   ##  Contribution Guidelines  
 
@@ -50,7 +50,7 @@
 
   ***
     
-  This Project is Currently under Construction  
+  run `npm test` from a terminal in the repo directory  
     
   ##  License
 
