@@ -62,9 +62,9 @@
 *Optional -- if you have installed the shell scripts to a directory in your PATH then you can run this application from any directory by entering `teamgen`(bash) or `teamgen.cmd`(powershell) in the command line. Using this option will produce the /dist subdirectory in whatever directory it is ran from. In Linux You may need to change file permissions to run the script, for most users 755 will work fine. navigate to the directory where the script is located and run `chmod 755 teamgen` from the command line.*
 
 See attached instructional video:
-
+(CLICK IMAGE TO VIEW VIDEO)
     
-[![PROJECT-TEAM-GENERATOR INSTRUCTIONAL VIDEO](./inst.png)](https://youtu.be/_GmBIsQ49J "TEAMGEN INSTRUCTIONS") 
+[![PROJECT-TEAM-GENERATOR INSTRUCTIONAL VIDEO](./assets/inst.png)](https://youtu.be/5AHNaILw1vA "CLICK HERE TO WATCH VIDEO") 
   ##  Contribution Guidelines  
 
 ***
