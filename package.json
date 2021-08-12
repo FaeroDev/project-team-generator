@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pharaohnof/project-team-generator.git"
+    "url": "git+https://github.com/FaeroDev/project-team-generator.git"
   },
-  "author": "M. Scott Pawlak (pharaohnof)",
+  "author": "M. Scott Pawlak (FaeroDev)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pharaohnof/project-team-generator/issues"
+    "url": "https://github.com/FaeroDev/project-team-generator/issues"
   },
-  "homepage": "https://github.com/pharaohnof/project-team-generator#readme",
+  "homepage": "https://github.com/FaeroDev/project-team-generator#readme",
   "dependencies": {
     "fs": "0.0.1-security",
     "inquirer": "^8.0.0",
